@@ -5,11 +5,6 @@ def get_run(command):
 def run(command):
         subprocess.run(command, shell=True)
 
-run((
-        'sudo apt update \n'
-        'sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev'
-))
-
 major_versions = ['3.10', '3.11']
 for major_version in major_versions:
         minor_version_numbers = []
