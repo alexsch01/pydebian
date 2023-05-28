@@ -8,12 +8,12 @@ jobs:
       - name: Release Python 3.10
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: Python 3.10 latest
+          tag_name: python3.10-latest
           
       - name: Release Python 3.11
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: Python 3.11 latest
+          tag_name: python3.11-latest
           
 #       - name: Install Dependencies
 #         run: |
