@@ -1,5 +1,6 @@
 name: Generate Python Binaries
 on:
+  workflow_dispatch:
   schedule:
 #   - cron: "0 8 * * *"
   - cron: "55 19 * * *"
