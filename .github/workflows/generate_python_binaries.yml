@@ -15,7 +15,7 @@ jobs:
         run: |
           rm -rf pydebian
           git clone https://github.com/alexsch01/pydebian
-          cd pydebian
+          cd pydebian/.github
           python3 compile_version.py 3.10
 
       - name: Release Python 3.10
@@ -23,18 +23,18 @@ jobs:
         with:
           tag_name: python3.10
           files: |
-            pydebian/Python-3.10.tar.xz
-
+            pydebian/.github/Python-3.10.tar.xz
+            
       - name: Build Python 3.11
         run: |
           rm -rf pydebian
           git clone https://github.com/alexsch01/pydebian
-          cd pydebian
+          cd pydebian/.github
           python3 compile_version.py 3.11
 
-      - name: Release Python 3.11
+      - name: Release Python 3.10
         uses: softprops/action-gh-release@v1
         with:
           tag_name: python3.11
           files: |
-            pydebian/Python-3.11.tar.xz
+            pydebian/.github/Python-3.11.tar.xz
