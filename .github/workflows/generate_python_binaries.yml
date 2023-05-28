@@ -5,43 +5,36 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+    
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+
+      - name: Build Python 3.10
+        run: |
+          rm -rf test
+          git clone https://github.com/alexsch01/test
+          cd test/.github
+          python3 compile_version.py 3.10
+
       - name: Release Python 3.10
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: python3.10-latest
-          
+          tag_name: python3.10
+          files: |
+            test/.github/Python-3.10.tar.xz
+
+      - name: Build Python 3.11
+        run: |
+          rm -rf test
+          git clone https://github.com/alexsch01/test
+          cd test/.github
+          python3 compile_version.py 3.11
+
       - name: Release Python 3.11
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: python3.11-latest
-          
-#       - name: Install Dependencies
-#         run: |
-#           sudo apt-get update
-#           sudo apt-get install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-
-#       - name: Build Python 3.10
-#         run: |
-#           git clone https://github.com/alexsch01/test
-#           cd test/.github
-#           python3 compile_version.py 3.10
-
-#       - name: Release Python 3.10
-#         uses: softprops/action-gh-release@v1
-#         with:
-#           tag_name: Python 3.10 latest
-#           files: |
-#             test/.github/Python-3.10.tar.xz
-
-#       - name: Build Python 3.11
-#         run: |
-#           git clone https://github.com/alexsch01/test
-#           cd test/.github
-#           python3 compile_version.py 3.11
-
-#       - name: Release Python 3.11
-#         uses: softprops/action-gh-release@v1
-#         with:
-#           tag_name: Python 3.11 latest
-#           files: |
-#             test/.github/Python-3.11.tar.xz
+          tag_name: python3.11
+          files: |
+            test/.github/Python-3.11.tar.xz
