@@ -13,9 +13,9 @@ jobs:
 
       - name: Build Python 3.10
         run: |
-          rm -rf test
-          git clone https://github.com/alexsch01/test
-          cd test
+          rm -rf pydebian
+          git clone https://github.com/alexsch01/pydebian
+          cd pydebian
           python3 compile_version.py 3.10
 
       - name: Release Python 3.10
@@ -23,13 +23,13 @@ jobs:
         with:
           tag_name: python3.10
           files: |
-            test/Python-3.10.tar.xz
+            pydebian/Python-3.10.tar.xz
 
       - name: Build Python 3.11
         run: |
-          rm -rf test
-          git clone https://github.com/alexsch01/test
-          cd test
+          rm -rf pydebian
+          git clone https://github.com/alexsch01/pydebian
+          cd pydebian
           python3 compile_version.py 3.11
 
       - name: Release Python 3.11
@@ -37,4 +37,4 @@ jobs:
         with:
           tag_name: python3.11
           files: |
-            test/Python-3.11.tar.xz
+            pydebian/Python-3.11.tar.xz
