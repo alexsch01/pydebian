@@ -15,6 +15,7 @@ subprocess.run((
         f'cd Python-{version} \n'
         f'./configure --enable-optimizations \n'
         'make \n'
+        'cd .. \n'
         f'mv Python-{version} Python-{major_version}'
 ), shell=True)
         
