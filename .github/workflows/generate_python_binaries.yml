@@ -2,6 +2,7 @@ name: Generate Python Binaries
 on: workflow_dispatch
 jobs:
   generate_python_binaries:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
 #       - name: Install Dependencies
