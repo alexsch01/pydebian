@@ -9,7 +9,6 @@ for line in lines:
 version = f'{major_version}.{max(minor_version_numbers)}'
 
 subprocess.run((
-        'cd versions \n'
         f'wget https://www.python.org/ftp/python/{version}/Python-{version}.tgz \n'
         f'tar xzf Python-{version}.tgz \n'
         f'rm -rf Python-{version}.tgz \n'
