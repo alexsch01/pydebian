@@ -1,5 +1,7 @@
 import re, subprocess
 
+subprocess.run('mkdir versions', shell=True)
+
 major_versions = ['3.10', '3.11']
 for major_version in major_versions:
         minor_version_numbers = []
@@ -10,11 +12,13 @@ for major_version in major_versions:
         version = f'{major_version}.{max(minor_version_numbers)}'
 
         subprocess.run((
+                'cd versions \n'
                 f'wget https://www.python.org/ftp/python/{version}/Python-{version}.tgz \n'
                 f'tar xzf Python-{version}.tgz \n'
+                f'rm -rf Python-{version}.tgz \n'
                 f'cd Python-{version} \n'
                 f'./configure --enable-optimizations \n'
-                'make \n'
-                'cd .. \n'
-                'ls -l'
+                'make'
         ), shell=True)
+        
+subprocess.run('tar cfJ versions.tar.xz versions/', shell=True)
