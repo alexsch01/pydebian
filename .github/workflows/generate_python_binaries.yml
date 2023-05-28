@@ -32,7 +32,7 @@ jobs:
           cd pydebian/.github
           python3 compile_version.py 3.11
 
-      - name: Release Python 3.10
+      - name: Release Python 3.11
         uses: softprops/action-gh-release@v1
         with:
           tag_name: python3.11
