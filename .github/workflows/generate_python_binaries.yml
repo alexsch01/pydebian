@@ -1,5 +1,7 @@
 name: Generate Python Binaries
-on: workflow_dispatch
+on:
+  schedule:
+  - cron: "0 8 * * *"
 jobs:
   generate_python_binaries:
     permissions: write-all
