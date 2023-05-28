@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: my-step
-        run: python3 --version
+        run: curl --version && wget --version
