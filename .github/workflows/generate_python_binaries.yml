@@ -9,22 +9,17 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
+          echo 'world' > hello.txt
 #       - name: Build Python Versions
 #         run: |
 #           git clone https://github.com/alexsch01/test
 #           cd test/.github
 #           python3 compile_versions.py
       - name: Release
-        uses: actions/create-release@v1
-        id: create_release
+        uses: softprops/action-gh-release@v1
         with:
-          draft: false
-          prerelease: false
-          release_name: "Test"
-#           tag_name: ${{ github.ref_name }}
-#           body_path: CHANGELOG.md
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+          files: |
+            hello.txt
 #       - name: Use the Upload Artifact GitHub Action
 #         uses: actions/upload-artifact@v2
 #         with: 
