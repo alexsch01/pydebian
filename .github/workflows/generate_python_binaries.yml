@@ -6,7 +6,7 @@ on:
 jobs:
   generate_python_binaries:
     permissions: write-all
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     
       - name: Install Dependencies
