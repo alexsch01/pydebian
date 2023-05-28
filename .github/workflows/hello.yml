@@ -1,8 +1,0 @@
-name: hello-world
-on: workflow_dispatch
-jobs:
-  my-job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: my-step
-        run: git clone https://github.com/alexsch01/test && cd test && python3 compile_versions.py
