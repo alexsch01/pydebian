@@ -28,6 +28,7 @@ jobs:
           tag_name: python3.10
           files: |
             pydebian/.github/Python-3.10.tar.xz
+          fail_on_unmatched_files: true
             
       - name: Build Python 3.11
         run: |
@@ -42,3 +43,4 @@ jobs:
           tag_name: python3.11
           files: |
             pydebian/.github/Python-3.11.tar.xz
+          fail_on_unmatched_files: true
