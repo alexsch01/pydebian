@@ -1,4 +1,4 @@
-name: Compile Python
+name: Generate Python Binaries
 on: workflow_dispatch
 jobs:
   archive-build-artifacts:
@@ -11,7 +11,7 @@ jobs:
       - name: build python versions
         run: |
           git clone https://github.com/alexsch01/test
-          cd test
+          cd test/.github
           python3 compile_versions.py
       - name: use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
