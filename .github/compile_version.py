@@ -13,10 +13,10 @@ subprocess.run((
         f'tar xzf Python-{version}.tgz \n'
         f'rm -rf Python-{version}.tgz \n'
         f'cd Python-{version} \n'
-        f'./configure --enable-optimizations \n'
+        './configure --enable-optimizations \n'
         'make \n'
         'cd .. \n'
         f'mv Python-{version} Python-{major_version}'
 ), shell=True)
         
-subprocess.run('tar cfJ Python-{major_version}.tar.xz Python-{major_version}/', shell=True)
+subprocess.run(f'tar cfJ Python-{major_version}.tar.xz Python-{major_version}/', shell=True)
