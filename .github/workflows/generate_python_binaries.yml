@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     
+      - uses: dev-drprasad/delete-older-releases@v0.2.1
+        with:
+          keep_latest: 0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
       - name: Install Dependencies
         run: |
           sudo apt-get update
@@ -21,13 +27,6 @@ jobs:
           git clone https://github.com/alexsch01/pydebian
           cd pydebian/.github
           python3 compile_version.py 3.10
-          
-      - uses: dev-drprasad/delete-older-releases@v0.2.1
-        with:
-          keep_latest: 0
-          delete_tag_pattern: 3.10
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release Python 3.10
         uses: softprops/action-gh-release@v1
@@ -44,13 +43,6 @@ jobs:
           git clone https://github.com/alexsch01/pydebian
           cd pydebian/.github
           python3 compile_version.py 3.11
-          
-      - uses: dev-drprasad/delete-older-releases@v0.2.1
-        with:
-          keep_latest: 0
-          delete_tag_pattern: 3.11
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release Python 3.11
         uses: softprops/action-gh-release@v1
