@@ -5,6 +5,16 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+      - name: Release Python 3.10
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Python 3.10 latest
+          tag_name: ${{ github.ref_name }}
+      - name: Release Python 3.11
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Python 3.11 latest
+          tag_name: ${{ github.ref_name }}
 #       - name: Install Dependencies
 #         run: |
 #           sudo apt-get update
@@ -14,9 +24,17 @@ jobs:
 #           git clone https://github.com/alexsch01/test
 #           cd test/.github
 #           python3 compile_versions.py
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref_name }}
+#       - name: Release Python 3.10
+#         uses: softprops/action-gh-release@v1
+#         with:
+#           name: Python 3.10 latest
+#           tag_name: ${{ github.ref_name }}
 #           files: |
-#             test/.github/versions.tar.xz
+#             test/.github/Python-3.10.tar.xz
+#       - name: Release Python 3.11
+#         uses: softprops/action-gh-release@v1
+#         with:
+#           name: Python 3.11 latest
+#           tag_name: ${{ github.ref_name }}
+#           files: |
+#             test/.github/Python-3.11.tar.xz
