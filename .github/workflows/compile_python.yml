@@ -13,3 +13,8 @@ jobs:
           git clone https://github.com/alexsch01/test
           cd test
           python3 compile_versions.py
+      - name: use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with: 
+          name: python_versions
+          path: test
