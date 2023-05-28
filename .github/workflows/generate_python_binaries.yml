@@ -4,16 +4,16 @@ jobs:
   archive-build-artifacts:
     runs-on: ubuntu-latest
     steps:
-      - name: install dependencies
+      - name: Install dependencies
         run: |
           sudo apt update
           sudo apt install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-      - name: build python versions
+      - name: Build python versions
         run: |
           git clone https://github.com/alexsch01/test
           cd test/.github
           python3 compile_versions.py
-      - name: use the Upload Artifact GitHub Action
+      - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with: 
           name: python_versions
