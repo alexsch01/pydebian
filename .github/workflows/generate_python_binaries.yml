@@ -2,14 +2,12 @@ name: Generate Python Binaries
 on: workflow_dispatch
 jobs:
   generate_python_binaries:
-    permissions: write-all
     runs-on: ubuntu-latest
     steps:
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-          echo 'world' > hello.txt
+#       - name: Install Dependencies
+#         run: |
+#           sudo apt-get update
+#           sudo apt-get install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
 #       - name: Build Python Versions
 #         run: |
 #           git clone https://github.com/alexsch01/test
@@ -18,11 +16,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: |
-            hello.txt
           tag_name: ${{ github.ref_name }}
-#       - name: Use the Upload Artifact GitHub Action
-#         uses: actions/upload-artifact@v2
-#         with: 
-#           name: python_versions
-#           path: test/.github/versions.tar.xz
+#           files: |
+#             test/.github/versions.tar.xz
