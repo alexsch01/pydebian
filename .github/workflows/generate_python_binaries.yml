@@ -2,6 +2,7 @@ name: Generate Python Binaries
 on: workflow_dispatch
 jobs:
   generate_python_binaries:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies
@@ -24,8 +25,8 @@ jobs:
 #           body_path: CHANGELOG.md
         env:
           GITHUB_TOKEN: ${{ github.token }}
-      - name: Use the Upload Artifact GitHub Action
-        uses: actions/upload-artifact@v2
-        with: 
-          name: python_versions
-          path: test/.github/versions.tar.xz
+#       - name: Use the Upload Artifact GitHub Action
+#         uses: actions/upload-artifact@v2
+#         with: 
+#           name: python_versions
+#           path: test/.github/versions.tar.xz
