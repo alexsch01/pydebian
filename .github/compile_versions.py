@@ -18,4 +18,4 @@ subprocess.run((
         'make'
 ), shell=True)
         
-subprocess.run('tar cfJ Python-{version}.tar.xz Python-{version}/', shell=True)
+subprocess.run('tar cfJ Python-{major_version}.tar.xz Python-{version}/', shell=True)
