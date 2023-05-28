@@ -20,6 +20,7 @@ jobs:
         with:
           files: |
             hello.txt
+          tag_name: ${{ github.ref_name }}
 #       - name: Use the Upload Artifact GitHub Action
 #         uses: actions/upload-artifact@v2
 #         with: 
