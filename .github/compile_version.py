@@ -14,7 +14,7 @@ subprocess.run((
         f'rm -rf Python-{version}.tgz \n'
         f'cd Python-{version} \n'
         './configure --enable-optimizations \n'
-        'make \n'
+        'make -j $(nproc) \n'
         'cd .. \n'
         f'mv Python-{version} Python-{major_version}'
 ), shell=True)
