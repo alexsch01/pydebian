@@ -23,9 +23,13 @@ jobs:
           python3 compile_version.py 3.10
 
       - name: Release Python 3.10
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload python3.10 pydebian/.github/Python-3.10.tar.xz --clobber
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Python 3.10
+          tag_name: python3.10
+          files: |
+            pydebian/.github/Python-3.10.tar.xz
+          fail_on_unmatched_files: true
             
       - name: Build Python 3.11
         run: |
@@ -35,6 +39,10 @@ jobs:
           python3 compile_version.py 3.11
 
       - name: Release Python 3.11
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload python3.11 pydebian/.github/Python-3.11.tar.xz --clobber
+        uses: softprops/action-gh-release@v1
+        with:
+          name: Python 3.11
+          tag_name: python3.11
+          files: |
+            pydebian/.github/Python-3.11.tar.xz
+          fail_on_unmatched_files: true
