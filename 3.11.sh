@@ -8,5 +8,6 @@ cd ..
 sudo rm -rf Python-3.11*
 sudo rm /usr/local/bin/2to3-3.11
 sudo rm /usr/local/bin/idle3.11
+sudo rm /usr/local/bin/pydoc3.11
 sudo rm /usr/local/bin/pip3.11
 sudo rm /usr/local/bin/python3.11-config
