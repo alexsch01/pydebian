@@ -14,7 +14,21 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y wget build-essential libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev
-            
+         
+      - name: Build Python 2.7
+        run: |
+          rm -rf pydebian
+          git clone https://github.com/alexsch01/pydebian
+          cd pydebian/.github
+          python3 compile_version.py 2.7
+
+      - name: Release Python 2.7
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd pydebian
+          gh release upload python2.7 .github/Python-2.7.tar.xz --clobber   
+         
       - name: Build Python 3.11
         run: |
           rm -rf pydebian
